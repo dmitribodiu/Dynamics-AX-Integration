@@ -20,16 +20,16 @@ namespace AuthenticationUtility
 
             // You need this only if you logon via service principal using a client secret. See: https://docs.microsoft.com/en-us/dynamics365/unified-operations/dev-itpro/data-entities/services-home-page to get more data on how to populate those fields.
             // You can find that under AAD in the azure portal
-            ActiveDirectoryResource = "https://usnconeboxax1aos.cloud.onebox.dynamics.com", // Don't have a trailing "/". Note: Some of the sample code handles that issue.
-            ActiveDirectoryTenant = "https://login.windows-ppe.net/TAEOfficial.ccsctp.net", // Some samples: https://login.windows.net/yourtenant.onmicrosoft.com, https://login.windows.net/microsoft.com
-            ActiveDirectoryClientAppId = "d8a9a121-b463-41f6-a86c-041272bdb340",
+            ActiveDirectoryResource = "https://a2c.sandbox.operations.dynamics.com", // Don't have a trailing "/". Note: Some of the sample code handles that issue.
+            ActiveDirectoryTenant = "https://login.microsoftonline.com/968176fa-1eb8-4608-b9bd-36714706d7c6/oauth2/token", // Some samples: https://login.windows.net/yourtenant.onmicrosoft.com, https://login.windows.net/microsoft.com
+            ActiveDirectoryClientAppId = "ceef4f2b-c400-4bea-bd98-a13cea4ef474",
             // Insert here the application secret when authenticate with AAD by the application
-            ActiveDirectoryClientAppSecret = "",
+            ActiveDirectoryClientAppSecret = "zCdM6jvrG._Hyfh87wNG4ju~_fhxx4cK9m",
 
             // Change TLS version of HTTP request from the client here
             // Ex: TLSVersion = "1.2"
             // Leave it empty if want to use the default version
-            TLSVersion = "",
+            TLSVersion = "1.2",
         };
 
         public string TLSVersion { get; set; }

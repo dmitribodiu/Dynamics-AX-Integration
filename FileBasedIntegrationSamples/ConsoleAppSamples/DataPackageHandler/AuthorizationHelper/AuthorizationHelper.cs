@@ -9,10 +9,10 @@ namespace AuthorizationHelper
 {
     public class AuthorizationHelper
     {
-        const string aadTenant = "https://login.windows.net/<your-tenant>";
-        public const string aadResource = "https://<yourAOS>.cloudax.dynamics.com";
-        const string aadClientAppId = "<client id>";        
-        const string aadClientAppSecret = "<client secret>";
+        const string aadTenant = "https://login.microsoftonline.com/968176fa-1eb8-4608-b9bd-36714706d7c6/oauth2/token";
+        public const string aadResource = "https://a2c.sandbox.operations.dynamics.com";
+        const string aadClientAppId = "ceef4f2b-c400-4bea-bd98-a13cea4ef474";        
+        const string aadClientAppSecret = "zCdM6jvrG._Hyfh87wNG4ju~_fhxx4cK9m";
 
         /// <summary>
         /// Retrieves an authentication header from the service.

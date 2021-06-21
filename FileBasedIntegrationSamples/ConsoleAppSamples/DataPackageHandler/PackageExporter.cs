@@ -17,7 +17,7 @@ namespace DataPackageHandler
 
             // 1. Initiate export of a data project to create a data package within Dynamics 365 for Operations
             Console.WriteLine("Initiating export of a data project...");
-            var executionId = d365Client.DataManagementDefinitionGroups.ExportToPackage("Integration_Outbound_Flow_01", Guid.NewGuid().ToString(), string.Empty, false, "USMF").GetValue();
+            var executionId = d365Client.DataManagementDefinitionGroups.ExportToPackage("ExportToSqlTest", Guid.NewGuid().ToString(), string.Empty, false, "UK").GetValue();
             Console.WriteLine("Initiating export of a data project...Complete");
 
             // 2. Check if execution is completed
@@ -45,15 +45,25 @@ namespace DataPackageHandler
             }
             while (output == DMFExecutionSummaryStatus.NotRun || output == DMFExecutionSummaryStatus.Executing);
 
-            if (output.HasValue 
-                && output.Value != DMFExecutionSummaryStatus.Succeeded 
-                && output.Value != DMFExecutionSummaryStatus.PartiallySucceeded)
-            {
-                throw new Exception("Operation Failed");
-            }
+            //if (output.HasValue 
+            //    && output.Value != DMFExecutionSummaryStatus.Succeeded 
+            //    && output.Value != DMFExecutionSummaryStatus.PartiallySucceeded)
+            //{
+            //    throw new Exception("Operation Failed");
+            //}
 
-            // 3. Get downloable Url to download the package           
-            var downloadUrl = d365Client.DataManagementDefinitionGroups.GetExportedPackageUrl(executionId).GetValue();
+            // 3. Get downloable Url to download the package
+            string downloadUrl;
+            try
+            {
+                downloadUrl = d365Client.DataManagementDefinitionGroups.GetExportedPackageUrl(executionId).GetValue();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+            
 
 
             // 4. Download the file from Url to a local folder
